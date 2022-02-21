@@ -10,6 +10,10 @@ const Lesson3 = () => {
 
     const searchFilm = () => {
         API.searchFilmsByTitle(searchName)
+            .then(({data})=>{
+                console.log(res.data.Search)
+            })
+            .catch(err=> console.log(err.data.error))
     };
 
     const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {

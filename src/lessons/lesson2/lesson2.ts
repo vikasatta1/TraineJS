@@ -1,5 +1,6 @@
 console.log('lesson 2');
-
+export const lala = () => {
+}
 // Lexical environment
 // http://jsflow.org/docs/lex-env/
 
@@ -23,16 +24,35 @@ console.log('lesson 2');
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
+/*const sum =  (a:number) => {
+    return function sum2(b:number){
+            console.log(a+b)
+
+    }
+}
+sum(3)(6)*/
 
 // Task 02
+/*
+function makeCounter(){
+    let count = 1
+    return function (){
+        return count++
+    }
+}
+*/
+
 // Реализовать функцию makeCounter которая работает следующим образом:
-// const counter = makeCounter();
+/* const counter = makeCounter();
 // counter(); // 1
 // counter(); // 2
-// const counter2 = makeCounter();
+ const counter2 = makeCounter();
 // counter2(); // 1
 // counter(); // 3
-
+console.log(counter())
+console.log(counter())
+console.log(counter2())
+console.log(counter())*/
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
 // и возвращала следующий объект методов:
@@ -40,6 +60,41 @@ console.log('lesson 2');
 // decrease: -1
 // reset: установить счетчик в 0;
 // set: установить счетчик в заданное значение;
+function makeCounter(count: number) {
+    let counts = count
+
+    function increase() {
+        return counts++
+    };
+
+    function decrease() {
+        return counts--
+    };
+
+    function reset() {
+        return counts = 0
+    };
+
+    function set() {
+        return counts = count
+    }
+
+}
+
+/*function sumTo(arg:number){
+    let result:number = 0;
+    for (let i = 0 ; i <= arg; i++){
+      result += i
+    }
+    return result
+}*/
+function sumTo(arg: number): number {
+    if (arg == 1) return arg;
+    return arg + sumTo(arg - 1)
+}
+
+console.log(sumTo(3))
+
 
 // Task 04*
 // Реализовать функцию superSum которая принимает число в качестве аргумента, которое указывает на количество слагаемых
@@ -50,6 +105,23 @@ console.log('lesson 2');
 // 4) superSum(3)(2,5,3) //10
 // 5) superSum(3)(2,5)(3) //10
 // 6) superSum(3)(2,5)(3,9) //10
+function superSum(n: number) {
+    if (n <= 0) return 0;
+    if (n === 1) return (num: number) => num;
+    let _args: number[] = [];
+
+    function helper(...args: number[]) {
+        _args = [..._args, ...args];
+        if (_args.length >= n) {
+            _args.length = n;
+            return  _args.reduce((acc,num) => acc + num)
+        } else {
+            return helper
+        }
+    }
+
+    return helper;
+}
 
 // P.S. типизируйте только аргументы, а при вызове функции используйте @ts-ignore
 
@@ -58,6 +130,12 @@ console.log('lesson 2');
 
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
+const arr = [1,1,2,[3,4]]
+// @ts-ignore
+arr.reduce((acc, val) => acc.concat(val), []);
 
 // just a plug
-export default () => {};
+function SumTo1(arg:number):number{
+    if(arg<=0)return arg
+    return arg + SumTo1(arg-1)
+}

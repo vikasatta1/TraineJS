@@ -66,25 +66,5 @@ const CurrencyEContainer: React.FC = () => {
         </React.Fragment>
     );
 };
-
-/*const mapStateToProps = ({currency}: { currency: CurrencyState }): CurrencyState => {
-    return {
-        currencies: currency.currencies,
-        currentCurrency: currency.currentCurrency,
-        isBuying: currency.isBuying,
-        amountOfBYN: currency.amountOfBYN,
-        amountOfCurrency: currency.amountOfCurrency,
-    };
-};*/
-
-
-/*const connector = connect(mapStateToProps, { ChangeActionAC,
-    ChangeCurrencyFieldAC,
-    СhangeCurrentCurrencyAC,});*/
-/*const connector = connect(mapStateToProps, {});
-
-type TProps = ConnectedProps<typeof connector>;
-
-export default connector(CurrencyEContainer);*/
 export default CurrencyEContainer;
 
