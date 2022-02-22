@@ -11,7 +11,9 @@ const Lesson3 = () => {
     const searchFilm = () => {
         API.searchFilmsByTitle(searchName)
             .then(({data})=>{
-                console.log(res.data.Search)
+                const {Search, Error, Response} = data
+                Response === "True" ? setSerachResult(JSON.stringify(Search)) : setSerachResult(Error)
+                console.log(data.Search)
             })
             .catch(err=> console.log(err.data.error))
     };
