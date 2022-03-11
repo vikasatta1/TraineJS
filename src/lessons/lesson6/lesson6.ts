@@ -7,10 +7,39 @@ console.log('Lesson 6');
 // https://www.youtube.com/watch?v=BASquaxab_w
 // https://www.youtube.com/watch?v=uLY9GXGMXaA
 
+class Test {
+    name:string;
+    constructor(name:string) {
+       this.name = name}
+    say(){console.log("lala")}
+}
+class Test2 extends Test {
+    age:number;
+    constructor(name:string, age:number) {
+        super(name);
+        this.age = age;}
+    sayBye(){}
+}
+class Test3 extends Test2 {
+    city:string;
+    constructor(name:string, age:number,  city:string) {
+        super(name,age);
+        this.city = city;
+    }
+    sayYo(){}
+}
+let obj = new Test3("Yo",10,"YoCity")
+
 // Task 01
 // Создайте структуру с именем student, содержащую поля: имя и фамилия, номер группы, успеваемость (массив из пяти элементов).
 // Создать массив из десяти элементов такого типа, упорядочить записи по возрастанию среднего балла.
 // Добавить возможность вывода фамилий и номеров групп студентов, имеющих оценки, равные только 4 или 5.
+const student = {
+    name:'Vika',
+    lastName: 'Morozova',
+    numberGroup:50,
+    success:[1,2,5,3,4]
+}
 
 // Task 02
 // Создать класс с двумя переменными. Добавить конструктор с входными параметрами и инициализирующий члены класса по умолчанию.
@@ -34,7 +63,7 @@ console.log('Lesson 6');
 // Создать класс машина - имеющий марку, число цилиндров, мощность. Определить конструктор и функцию печати.
 // Создать производный класс – грузовик, имеющий грузоподъемность кузова.
 // Определить функции переназначения марки и грузоподъемности.
-
+export const lele = () =>{}
 // just a plug
 export default () => {
 };

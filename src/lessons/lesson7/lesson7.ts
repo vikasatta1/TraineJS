@@ -39,7 +39,7 @@ console.log('Lesson 7');
 
 // Task 05
 // Используя метод Apply реализовать свой собственный метод bind
-
+export const lsls = () =>{}
 
 // just a plug
 export default () => {};

@@ -1,3 +1,5 @@
+import * as stream from "stream";
+
 console.log('Lesson 5');
 
 // Keyword - this
@@ -25,14 +27,24 @@ console.log('Lesson 5');
 // Дан объект someObj, реализуйте функцию greeting и присвойте ее ключу объекта с аналогичным именем.
 // Функция должна вернуть строку `My name is ${name}. I am ${age}`, где name и age берутся из свойств объекта
 
-type someObjType = {
+
+
+
+/*type someObjType = {
     name: string;
     age: number;
+    greeting: () => void
 }
 
-let someObj:someObjType = {
+let someObj: someObjType = {
     name: 'Eugene',
-    age: 32
+    age: 32,
+    greeting: function a() {
+        console.log(`My name is ${someObj.name}. I am ${someObj.age}`)
+    }
+}
+someObj.greeting()*/
+export const lala = () => {
 }
 
 // Task 02
@@ -43,7 +55,29 @@ let someObj:someObjType = {
 // set current count; - принимает и присваивает значение счетчику
 // rest current count - устанавливает значение счетчика равным 0
 // все методы должны ссылаться на сам объект
-
+/*const counter = {
+    count: 0,
+    getCurrentCount: function () {
+        return this.count
+    },
+    increment: function () {
+        return ++this.count
+    },
+    decrement: function () {
+        return --this.count
+    },
+    setCurrentCount: function (count: number) {
+        return this.count = count
+    },
+    restCurrentCount: function () {
+return this.count = 0
+    },
+}
+console.log(counter.getCurrentCount())
+console.log(counter.increment())
+console.log(counter.increment())
+console.log(counter.increment())
+console.log(counter.getCurrentCount())*/
 // Task 03
 // переделайте код из Task 02, что бы сработал следующий код:
 // counter.setCurrentCount(10).increment().increment().increment().decrement().getCurrentCount() // 12
@@ -55,7 +89,11 @@ let someObj:someObjType = {
 // Task 05 есть 2 объекта One и Two. С помощью bind и метода sayHello заставьте поздороваться объект One
 
 let One = {name: 'One'};
-let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${this.name}`)}};
+let Two = {
+    name: 'Two', sayHello: function () {
+        console.log(`Hello, my name is ${this.name}`)
+    }
+};
 
 // Task 06
 // создайте объект helperObj у которого есть следующие методы:
@@ -67,7 +105,9 @@ let Two = {name: 'Two', sayHello: function() {console.log(`Hello, my name is ${t
 // Bind
 // 1) Дана функция sumTwoNumbers, реализовать функцию bindNumber которая принимает функцию sumTwoNumbers и число, и
 // возвращает другую функцию, которое также принимает число и возвращает сумму этих чисел. Замыкание использовать нельзя
-function sumTwoNumbers(a:number,b:number):number {return a + b};
+function sumTwoNumbers(a: number, b: number): number {
+    return a + b
+};
 
 // 2) Напишите функцию которая принимает первым аргументом объект One, а вторым helperObj. Данная функция
 // возвращает другую функцию которая принимает строку в качестве аргумента и устанавливает ее свойству name объекта One
@@ -77,6 +117,6 @@ function sumTwoNumbers(a:number,b:number):number {return a + b};
 // Реализовать задачи 2-4 из Bind с помощью Call
 
 
-
 // just a plug
-export default () => {};
+export default () => {
+};
