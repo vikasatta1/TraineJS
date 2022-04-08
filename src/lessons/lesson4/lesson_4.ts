@@ -9,10 +9,10 @@ console.log('lesson 4');
 // Task 01
 // Создайте промис, который постоянно находиться в состоянии pending.
 // В конструкторе промиса выведите в консоль сообщение "Promise is created".
-const prom = new Promise((resolve, reject) => {
+/*const prom = new Promise((resolve, reject) => {
     console.log("Promise is created")
 })
-console.log(prom)
+console.log(prom)*/
 // Task 02
 // Создайте промис, который после создания сразу же переходит в состояние resolve
 // и возвращает строку 'Promise Data'
@@ -51,7 +51,7 @@ type testObjPromise = {
     onSuccess: (paramName: string) => void
     onError: (paramName: string) => void
 }
-const handlePromise:testObjPromise = {
+const handlePromise: testObjPromise = {
     promise: null,
     resolve: null,
     reject: null,
@@ -63,7 +63,7 @@ const handlePromise:testObjPromise = {
     },
 }
 export const createPromise = () => {
-    const somePromise:Promise<any> = new Promise((res, rej)=>{
+    const somePromise: Promise<any> = new Promise((res, rej) => {
         handlePromise.resolve = res
     });
     handlePromise.promise = somePromise
@@ -77,7 +77,7 @@ export const resolvePromise = () => {
     handlePromise.resolve && handlePromise.resolve('yoyoyo')
 }
 export const rejectPromise = () => {
-    handlePromise.reject&& handlePromise.reject('fofofo')
+    handlePromise.reject && handlePromise.reject('fofofo')
 }
 // Task 06
 // Создайте промис, который через 1 с возвращает строку "My name is".
@@ -117,7 +117,7 @@ async function show(){
 }
 show()*/
 
-async function  sleep(ms:number){
+/*async function  sleep(ms:number){
     return new Promise((res,rej)=>{
         setTimeout(()=>{
             res()
@@ -130,10 +130,81 @@ async function show(){
     await sleep(3)
     await sleep(2)
     await sleep(1)
-}
-show()
+}*/
+/*show()*/
 export const lala = () => {
 }
+
+/*
+console.log('request data')
+setTimeout(()=>{
+    console.log("Preparing data")
+    const  backendData = {
+        server:'aws',
+        port:2000,
+        status:'working'
+    }
+    setTimeout(()=>{
+        //@ts-ignore
+        backendData.modified = true
+        console.log("received data",backendData)
+    },2000)
+},2000)
+*/
+const pr = new Promise((res, rej) => {
+    setTimeout(() => {
+        console.log("Preparing data")
+        const backendData = {
+            server: 'aws',
+            port: 2000,
+            status: 'working'
+        }
+        res(backendData)
+    }, 2000)
+})
+
+pr.then((data) => {
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            //@ts-ignore
+            data.modified = true
+            res(data)
+        }, 2000)
+    })
+})
+
+    .then((clientData) => {
+        console.log("received data", clientData)
+        //@ts-ignore
+        clientData.fromPromise = true
+        return clientData
+    })
+    .then((data) => {
+        console.log("ModifiedData", data)
+    })
+    .catch((err) => {
+        console.log('err', err)
+    })
+    .finally(() => {
+        console.log("Finally")
+    })
+
+const sleep = (ms: number) => {
+    return new Promise((res) => {
+        setTimeout(() => {
+            res()
+        }, ms)
+    })
+}
+sleep(2000)
+    .then(() => {
+        console.log("2 sec")
+    })
+sleep(3000)
+    .then(() => {
+        console.log("3 sec")
+    })
+
 // just a plug
 export default () => {
 };
