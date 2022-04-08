@@ -14,6 +14,6 @@ function App() {
     );
 }
 
-lsls()
+
 export default App;
 

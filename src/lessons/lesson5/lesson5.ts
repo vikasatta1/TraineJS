@@ -22,30 +22,25 @@ console.log('Lesson 5');
 // https://learn.javascript.ru/call-apply-decorators
 // https://medium.com/@stasonmars/%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE-%D0%BE-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D0%B0%D1%85-apply-call-%D0%B8-bind-%D0%BD%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D1%8B%D1%85-%D0%BA%D0%B0%D0%B6%D0%B4%D0%BE%D0%BC%D1%83-javascript-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%87%D0%B8%D0%BA%D1%83-ddd5f9b06290
 
-
+export const mkm = ()=> {
+    console.log("cdc")}
 // Task 01
 // Дан объект someObj, реализуйте функцию greeting и присвойте ее ключу объекта с аналогичным именем.
 // Функция должна вернуть строку `My name is ${name}. I am ${age}`, где name и age берутся из свойств объекта
 
-
-
-
-/*type someObjType = {
-    name: string;
-    age: number;
-    greeting: () => void
+const someObj ={
+    name:"Vika",
+    age:23
 }
-
-let someObj: someObjType = {
-    name: 'Eugene',
-    age: 32,
-    greeting: function a() {
-        console.log(`My name is ${someObj.name}. I am ${someObj.age}`)
-    }
+//@ts-ignore
+function greeting(){
+    //@ts-ignore
+    console.log(`My name is ${this.name}. I am ${this.age}`)
 }
-someObj.greeting()*/
-export const lala = () => {
-}
+//@ts-ignore
+someObj.f = greeting
+//@ts-ignore
+someObj.f()
 
 // Task 02
 // реализовать счетчик counter в виде объекта со следующими методами:
@@ -101,6 +96,18 @@ let Two = {
 // setAge - устанавливает полученное значение в свойство age объекта
 // greeting - используется функция sayHello из Task 05
 // можно использовать @ts-ignore
+const helperObj = {
+    changeName(name:string){
+        //@ts-ignore
+        this.name = name
+    },
+    setAge(age:number){
+        //@ts-ignore
+        this.age = age
+    }
+}
+
+
 
 // Bind
 // 1) Дана функция sumTwoNumbers, реализовать функцию bindNumber которая принимает функцию sumTwoNumbers и число, и
