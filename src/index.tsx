@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Provider } from 'react-redux';
-import { store } from './redux/state';
-import {mkm} from "./lessons/lesson5/lesson5";
-import {lala} from "./lessons/lesson4/lesson_4";
-lala()
+import {Provider} from 'react-redux';
+import {store} from './redux/state';
+import {test} from "./tests/test1";
+
+test()
 ReactDOM.render(
     <Provider store={store}>
         <App />
