@@ -147,6 +147,7 @@ cat.ageInfo = 8
 console.log(cat.ageInfo)*/
 
 
+/*
 class Component {
     constructor(selector:any) {
         //@ts-ignore
@@ -174,4 +175,4 @@ const  box1 = new Box({
     selector: '#box1',
     size:100,
     color: 'red'
-})
+})*/
