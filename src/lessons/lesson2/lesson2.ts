@@ -42,6 +42,19 @@ function makeCounter(){
 }
 */
 
+
+const sumToto = (num:number) =>{
+    let value = 0
+    for(let i=0; i< num;i++){
+        value+=num
+        /*if(num-1 !== 0){
+            value+=num
+        }*/
+    }
+    return value
+
+}
+
 // Реализовать функцию makeCounter которая работает следующим образом:
 /* const counter = makeCounter();
 // counter(); // 1
