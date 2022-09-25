@@ -5,9 +5,10 @@ import App from './App';
 import {Provider} from 'react-redux';
 import {store} from './redux/state';
 import {lala} from "./lessons/lesson2/lesson2";
+import {lele} from "./lessons/lesson6/lesson6";
 
 
-lala()
+lele()
 ReactDOM.render(
     <Provider store={store}>
         <App />

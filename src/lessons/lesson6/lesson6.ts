@@ -34,12 +34,43 @@ let obj = new Test3("Yo",10,"YoCity")
 // Создайте структуру с именем student, содержащую поля: имя и фамилия, номер группы, успеваемость (массив из пяти элементов).
 // Создать массив из десяти элементов такого типа, упорядочить записи по возрастанию среднего балла.
 // Добавить возможность вывода фамилий и номеров групп студентов, имеющих оценки, равные только 4 или 5.
-const student = {
+const student1 = {
     name:'Vika',
     lastName: 'Morozova',
     numberGroup:50,
     success:[1,2,5,3,4]
 }
+const student2 = {
+    name:'Anny',
+    lastName: 'Alexandrova',
+    numberGroup:50,
+    success:[1,5,5,3,5]
+}
+const student3 = {
+    name:'Lena',
+    lastName: 'LAla',
+    numberGroup:51,
+    success:[1,2,2,3,2]
+}
+const student4 = {
+    name:'Artem',
+    lastName: 'Momo',
+    numberGroup:51,
+    success:[1,5,5,3,4]
+}
+const student5 = {
+    name:'Nik',
+    lastName: 'Morozov',
+    numberGroup:52,
+    success:[1,3,3,3,4]
+}
+const student6 = {
+    name:'Alex',
+    lastName: 'Roy',
+    numberGroup:52,
+    success:[1,2,1,3,4]
+}
+const students =[student1,student2,student3,student4,student5,student6]
 
 // Task 02
 // Создать класс с двумя переменными. Добавить конструктор с входными параметрами и инициализирующий члены класса по умолчанию.

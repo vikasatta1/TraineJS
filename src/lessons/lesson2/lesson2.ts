@@ -24,13 +24,12 @@ export const lala = () => {
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
-/*const sum =  (a:number) => {
-    return function sum2(b:number){
-            console.log(a+b)
-
+const sum =(num:number) => {
+    return (num2:number)=>{
+        return num + num2
     }
 }
-sum(3)(6)*/
+sum(3)(6)
 
 // Task 02
 /*
@@ -43,19 +42,27 @@ function makeCounter(){
 */
 
 
-const sumToto = (num:number) =>{
-    let value = 0
-    for(let i=0; i< num;i++){
-        value+=num
-        /*if(num-1 !== 0){
-            value+=num
-        }*/
-    }
-    return value
+const sumToto = (arg: number): number => {
+    if (arg == 0) return arg
+    return arg + sumToto(arg - 1)
+}
+console.log(sumToto(3))
 
+
+/// flat на всю глубину
+const makeFlat = function (arr: any) {
+    return arr.reduce(function (a: any, c: any) {
+        let v = c instanceof Array ? makeFlat(c) : c;
+        return a.concat(v)
+    }, [])
+}
+// Реализовать функцию makeCounter которая работает следующим образом:
+
+const makeCounter = () => {
+    let i = 0
+    return i++
 }
 
-// Реализовать функцию makeCounter которая работает следующим образом:
 /* const counter = makeCounter();
 // counter(); // 1
 // counter(); // 2
@@ -66,6 +73,8 @@ console.log(counter())
 console.log(counter())
 console.log(counter2())
 console.log(counter())*/
+
+
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
 // и возвращала следующий объект методов:
@@ -73,7 +82,7 @@ console.log(counter())*/
 // decrease: -1
 // reset: установить счетчик в 0;
 // set: установить счетчик в заданное значение;
-function makeCounter(count: number) {
+function makeCounterr(count: number) {
     let counts = count
 
     function increase() {
@@ -101,12 +110,12 @@ function makeCounter(count: number) {
     }
     return result
 }*/
-function sumTo(arg: number): number {
+/*function sumTo(arg: number): number {
     if (arg == 1) return arg;
     return arg + sumTo(arg - 1)
 }
 
-console.log(sumTo(3))
+console.log(sumTo(3))*/
 
 
 // Task 04*
@@ -119,21 +128,20 @@ console.log(sumTo(3))
 // 5) superSum(3)(2,5)(3) //10
 // 6) superSum(3)(2,5)(3,9) //10
 function superSum(n: number) {
-    if (n <= 0) return 0;
-    if (n === 1) return (num: number) => num;
-    let _args: number[] = [];
+    if (n <= 0) return 0
+    if (n == 1) return (num: number) => num
+    let outerParams: number[] = []
 
-    function helper(...args: number[]) {
-        _args = [..._args, ...args];
-        if (_args.length >= n) {
-            _args.length = n;
-            return  _args.reduce((acc,num) => acc + num)
+    function inner(...arg: number[]) {
+        outerParams = [...outerParams, ...arg]
+        if (outerParams.length >= n) {
+            outerParams.length = n
+            return outerParams.reduce((acc, el) => acc + el)
         } else {
-            return helper
+            return inner;
         }
     }
-
-    return helper;
+    return inner
 }
 
 // P.S. типизируйте только аргументы, а при вызове функции используйте @ts-ignore
@@ -143,12 +151,18 @@ function superSum(n: number) {
 
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
-const arr = [1,1,2,[3,4]]
+const arr = [1, 1, 2, [3, 4,[22,5]]]
 // @ts-ignore
-arr.reduce((acc, val) => acc.concat(val), []);
+console.log(arr.reduce((acc, val) => acc.concat(val), []));
 
 // just a plug
-function SumTo1(arg:number):number{
-    if(arg<=0)return arg
-    return arg + SumTo1(arg-1)
+function SumTo1(arg: number): number {
+    if (arg <= 0) return arg
+    return arg + SumTo1(arg - 1)
 }
+function pow(x:number,y:number):number{
+    if(y == 1) return x
+    return x * pow(x,y-1)
+}
+
+console.log(pow(2,2))
